@@ -1,0 +1,238 @@
+*, *::before, *::after {
+    padding: 0;
+    margin: 0;
+    border: 0;
+    box-sizing: border-box;
+}
+html, body {
+    margin: 0;
+    height: 100%;
+    font-family: Arial, Helvetica, sans-serif;
+}
+.wrapper {
+    min-height: 100%;
+    max-width: 100%;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+}
+
+/* menu */
+header {
+    position: fixed;
+    width: 100%;
+    top: 0;
+    left: 0;
+    z-index: 50;
+}
+header::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: whitesmoke;
+    z-index: 2;
+}
+.container {
+    max-width: 100%;
+    margin: 0 auto;
+    padding: 0 10px;
+}
+.menu_body {
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    height: 80px;
+    align-items: center;
+}
+.menu_logo {
+    flex: 0 0 60px;
+    border-radius: 50%;
+    overflow: hidden;
+    position: relative;
+    z-index: 3;
+}
+.menu_logo img {
+    max-width: 100%;
+    display: block;
+}
+.menu_dropdown {
+    display: none;
+}
+.menu_list {
+    display: flex;
+    position: relative;
+    z-index: 2;
+}
+.menu_list li {
+    list-style: none;
+    padding-right: 5px;
+}
+.menu_list li a:hover {
+    color: black;
+    border-radius: 5px;
+    background-color: teal;
+}
+.menu_link {
+    color: slategray;
+    text-transform: uppercase;
+    font-size: 20px;
+    text-decoration: none;
+    padding: 5px 10px;
+}
+
+/* portfolio */
+main {
+    flex: 1 1 auto;
+    margin-top: 80px;
+    padding: 20px 10px;
+}
+.portfolio {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    line-height: 50px;
+}
+.portfolio_title {
+    color: grey;
+    text-transform: uppercase;
+}
+.portfolio_link {
+    color: teal;
+    font-size: 25px;
+    text-decoration: none;
+    text-transform: uppercase;
+}
+.portfolio_img img {
+    max-width: 100%;
+}
+
+
+/* footer */
+footer {
+    background-color: whitesmoke;
+    height: 80px;
+    width: 100%;
+}
+.info {
+    display: flex;
+    justify-content: space-around;
+    padding: 28.75px 0;
+}
+.footer_info, .footer_logo {
+    color: slategrey;
+    font-size: 20px;
+}
+.footer_year {
+    color: teal;
+}
+
+@media (max-width:767px) {
+    body.lock {
+        overflow: hidden;
+    }
+    .menu_body {
+        height: 70px;
+    }
+    .menu_logo {
+        flex: 0 0 40px;
+    }
+    .menu_dropdown {
+        display: block;
+        position: relative;
+        width: 30px;
+        height: 20px;
+        position: relative;
+        z-index: 3;
+    }
+    .menu_dropdown span {
+        position: absolute;
+        background-color: teal;
+        left: 0;
+        width: 100%;
+        height: 2px;
+        top: 9px;
+        transition: all 0.3s ease 0s;
+    }
+    .menu_dropdown::before,
+    .menu_dropdown::after {
+        content: '';
+        background-color: teal;
+        position: absolute;
+        width: 100%;
+        height: 2px;
+        left: 0;
+        transition: all 0.3s ease 0s;
+    }
+    .menu_dropdown::before {
+        top: 0;
+    }
+    .menu_dropdown::after {
+        bottom: 0;
+    }
+    .menu_dropdown.active span {
+        transform: scale(0);
+    }
+    .menu_dropdown.active::before {
+        transform: rotate(45deg);
+        top: 9px;
+    }
+    .menu_dropdown.active::after {
+        transform: rotate(-45deg);
+        bottom: 9px;
+    }
+    .menu {
+        position: fixed;
+        top: -100%;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        overflow: auto;
+        transition: all 0.9s ease 0s;
+        opacity: 0.9;
+        background-color: whitesmoke;
+        padding: 70px 10px 20px 10px;
+    }
+    .menu.active {
+        top: 0;
+    }
+    .menu_list {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin-top: 50px;
+    }
+    .menu_list li {
+        margin-bottom: 0 0 10px 0;
+    }
+    .menu_link {
+        font-size: 30px;
+        line-height: 60px;
+    }
+
+    main {
+        margin-top: 70px;
+        padding: 10px;
+    }
+
+    footer {
+        height: 40px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
+    .info {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        padding: 0;
+    }
+    .footer_info, .footer_logo {
+        font-size: 15px;
+    }
+}
