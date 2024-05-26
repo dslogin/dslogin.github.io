@@ -109,6 +109,7 @@ main {
     margin-top: 80px;
 }
 section {
+    min-height: 100vh;
     padding: 100px 0;
 }
 .me, .examples, .contacts {
@@ -237,6 +238,11 @@ section {
     align-items: center;
 }
 /* contacts */
+.contacts {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
 .row_contacts {
     display: flex;
     flex-direction: column;
@@ -259,8 +265,8 @@ section {
 }
 .contacts_inner {
     display: flex;
+    flex-direction: column;
     align-items: center;
-    justify-content: space-evenly;
     max-width: 600px;
 }
 .contact_item {
